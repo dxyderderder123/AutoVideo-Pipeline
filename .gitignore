@@ -1,0 +1,36 @@
+# ===== 敏感信息 =====
+.env
+.env.*
+!.env.example
+
+# ===== Python 运行环境 =====
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===== 运行时生成的大体积缓存 (不上传) =====
+workspace/temp/
+workspace/output/
+workspace/cache/
+logs/
+*.log
+
+# ===== AI 模型权重 (太大, 运行时自动下载) =====
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# ===== 大体积媒体文件 =====
+*.mp4
+*.mov
+*.avi
+
+# ===== 杂项 =====
+push_error.txt
+Optimizing Automated Video Pipeline.md
