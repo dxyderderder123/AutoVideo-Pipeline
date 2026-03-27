@@ -16,7 +16,7 @@
 
 ## ⚙️ 项目架构与工作流程
 
-本项目实现了从**输入文章到视频成品**的全链路自动化逻辑。系统具备硬件感知（GPU锁）、API熔断降级和多线程并行能力，确保了生产环境的稳健性。
+本项目实现了从**输入文章到视频成品**的全链路自动化逻辑，自媒体账号为 [英韵星](https://space.bilibili.com/1740211863?spm_id_from=333.1387.follow.user_card.click)。系统具备 [硬件感知（GPU锁）](src_english/utils_hardware.py)、[API熔断降级](src_english/utils_rate_limiter.py) 和 [多线程并行能力](src_english/workflow.py)，确保了生产环境的稳健性。
 
 ### 1. 核心自动化管线 (Pipeline)
 
@@ -37,8 +37,8 @@
 
 本项目支持**一键扫描式批量生产**：
 
-- **自动化入口**：系统自动扫描 `workspace/input/` 目录下的所有 Markdown 文稿。
-- **并行调度**：由 `scripts/batch_run.py` 统筹。它会根据硬件负载（如 8GB 显存建议开启 1 个任务）动态调度并行任务数，在保证硬件安全的前提下最大化生产效率。
+- **自动化入口**：系统自动扫描 [workspace/input/](workspace/input/) 目录下的所有 Markdown 文稿。
+- **并行调度**：由 [scripts/batch_run.py](scripts/batch_run.py) 统筹。它会根据硬件负载（如 8GB 显存建议开启 1 个任务）动态调度并行任务数，在保证硬件安全的前提下最大化生产效率。
 - **一键运行**：通过 [run_batch.bat](scripts/run_batch.bat) 即可启动完整的流水线任务。
 
 ---
@@ -53,7 +53,7 @@
 
 * **初期瓶颈**：一年前，受限于 AI 对精确数学/几何关系的生成能力，我将方向从物理科普转向更具意象表达空间的哲学科普。
 * **半自动化阶段**：当时采用 ComfyUI（生图）+ GPT-SoVITS（声音克隆）的架构。流程涉及“原文提取 -> Gemini 脚本生成 -> Python 素材生成 -> 人声降噪/混响处理 -> PR 辅助剪辑”。
-* **存证**：此阶段的原始脚本和素材处理文件，已归档至项目根目录的 `archive/old_workflow/` 文件夹中。
+* **存证**：此阶段的原始脚本和素材处理文件，已归档至项目根目录的 [archive/old_workflow/](archive/old_workflow/) 文件夹中。
 
 ### 2. 共鸣：从“应用探索”向“AI for Science”的转向
 
