@@ -1,0 +1,67 @@
+{
+  "project_name": "Self-media",
+  "tasks": [
+    {
+      "id": 1,
+      "category": "Pipeline",
+      "description": "确保 step1_analyze 覆盖输入全文并输出稳定分段",
+      "verification_steps": [
+        "运行 step1_analyze.py 生成 analysis.json",
+        "检查 segments 数量 > 3 且最后一段包含原文末句"
+      ],
+      "status": "completed",
+      "dependencies": []
+    },
+    {
+      "id": 2,
+      "category": "Pipeline",
+      "description": "确保 step3_video 对每段生成可用 video_file",
+      "verification_steps": [
+        "运行 step3_video.py",
+        "检查 analysis_video_only.json 中所有 segments 都有 video_file 且文件存在"
+      ],
+      "status": "completed",
+      "dependencies": [
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Quality",
+      "description": "避免成片出现整段黑屏（无素材时使用封面占位）",
+      "verification_steps": [
+        "跑完整流程生成 mp4",
+        "抽样多个时间点检测非全黑帧"
+      ],
+      "status": "completed",
+      "dependencies": [
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Upload",
+      "description": "提升上传后自动入合集稳定性（CID 获取与回查重试）",
+      "verification_steps": [
+        "开启上传跑一次流程",
+        "日志出现“Verified: video is in collection.”"
+      ],
+      "status": "completed",
+      "dependencies": [
+        3
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Security",
+      "description": "清理/轮换 API Key，并避免日志输出敏感链接；补齐 .gitignore",
+      "verification_steps": [
+        "轮换 DeepSeek Key 等密钥",
+        "确认日志不再打印带 query 的封面链接",
+        "确认 .env 等敏感文件被 gitignore"
+      ],
+      "status": "in_progress",
+      "dependencies": []
+    }
+  ]
+}
