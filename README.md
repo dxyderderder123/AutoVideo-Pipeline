@@ -26,14 +26,14 @@
 
 | 阶段              | 对应文件                                          | 功能描述 (真实逻辑)                                  | 核心技术                  |
 | :---------------- | :------------------------------------------------ | :--------------------------------------------------- | :------------------------ |
-| **01 分析** | [step1_analyze.py](src_english/step1_analyze.py)     | 将长文按语义切分为 20-30s 段落，提取视频搜索词       | LLM 语义分析              |
-| **02 配音** | [step2_tts.py](src_english/step2_tts.py)             | 生成配音音频（含 GPU 显存锁，防止多任务爆显存）      | **VibeVoice** 推理  |
-| **03 素材** | [step3_video.py](src_english/step3_video.py)         | 自动抓取视频素材。若 API 超限，则降级使用本地历史库  | Pexels/Pixabay API        |
-| **04 字幕** | [step5_subtitle.py](src_english/step5_subtitle.py)   | 优先调用 WhisperX 对齐，若环境缺失则改用词数比例计算 | WhisperX / 比例算法       |
-| **05 翻译** | [step6_translate.py](src_english/step6_translate.py) | 直译文稿并渲染为中英双语 ASS 字幕（含 \N 强制折行）  | LLM 翻译 + libass         |
-| **06 混剪** | [step7_merge.py](src_english/step7_merge.py)         | 执行复杂的 FFmpeg 滤镜链，完成音画同步与视频压制     | **FFmpeg** 底层滤镜 |
-| **07 封面** | [step8_cover.py](src_english/step8_cover.py)         | 基于文稿关键词自动生成横/竖版 AI 封面图              | SiliconCloud (KOLORS)     |
-| **08 发布** | [step9_upload.py](src_english/step9_upload.py)       | 自动登录并发布至B站，避开常见的 WAF 阻断             | bilibili-api 协议         |
+| **01&nbsp;分析** | [step1_analyze.py](src_english/step1_analyze.py)     | 将长文按语义切分为 20-30s 段落，提取视频搜索词       | LLM 语义分析              |
+| **02&nbsp;配音** | [step2_tts.py](src_english/step2_tts.py)             | 生成配音音频（含 GPU 显存锁，防止多任务爆显存）      | **VibeVoice** 推理  |
+| **03&nbsp;素材** | [step3_video.py](src_english/step3_video.py)         | 自动抓取视频素材。若 API 超限，则降级使用本地历史库  | Pexels/Pixabay API        |
+| **04&nbsp;字幕** | [step5_subtitle.py](src_english/step5_subtitle.py)   | 优先调用 WhisperX 对齐，若环境缺失则改用词数比例计算 | WhisperX / 比例算法       |
+| **05&nbsp;翻译** | [step6_translate.py](src_english/step6_translate.py) | 直译文稿并渲染为中英双语 ASS 字幕（含 \N 强制折行）  | LLM 翻译 + libass         |
+| **06&nbsp;混剪** | [step7_merge.py](src_english/step7_merge.py)         | 执行复杂的 FFmpeg 滤镜链，完成音画同步与视频压制     | **FFmpeg** 底层滤镜 |
+| **07&nbsp;封面** | [step8_cover.py](src_english/step8_cover.py)         | 基于文稿关键词自动生成横/竖版 AI 封面图              | SiliconCloud (KOLORS)     |
+| **08&nbsp;发布** | [step9_upload.py](src_english/step9_upload.py)       | 自动登录并发布至B站，避开常见的 WAF 阻断             | bilibili-api 协议         |
 
 ### 2. 批量生产能力
 
